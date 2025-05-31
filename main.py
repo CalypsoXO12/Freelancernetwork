@@ -1,10 +1,7 @@
-import os
 from app import app
-import routes  # This imports all the route definitions
 
-# For Gunicorn, we need to expose the app object
+# For Gunicorn deployment
 application = app
 
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 5000))
-    app.run(host="0.0.0.0", port=port, debug=False)
+    app.run()
