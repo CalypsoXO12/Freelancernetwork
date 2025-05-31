@@ -1,0 +1,152 @@
+{% extends "base.html" %}
+
+{% block title %}Freelance Financial Toolkit - Essential Tools for Independent Professionals{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero-section bg-primary text-white py-5">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 mb-4 mb-lg-0">
+                <h1 class="display-4 fw-bold mb-3">Simplify Your Freelance Finances</h1>
+                <p class="lead mb-4">Quick, free, and easy calculators to help you thrive as a freelancer. Make informed business decisions with our essential financial tools.</p>
+                <div class="d-flex flex-wrap gap-3">
+                    <a href="{{ url_for('hourly_rate_calculator') }}" class="btn btn-light btn-lg">
+                        <i class="fas fa-clock me-2"></i>Calculate Hourly Rate
+                    </a>
+                    <a href="{{ url_for('project_profit_calculator') }}" class="btn btn-outline-light btn-lg">
+                        <i class="fas fa-chart-line me-2"></i>Project Profitability
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-6 text-center">
+                <i class="fas fa-calculator display-1 opacity-75"></i>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Introduction Section -->
+<section class="py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 text-center">
+                <h2 class="mb-4">Navigate Freelance Finance Challenges</h2>
+                <p class="lead text-muted">Freelancers face unique financial challenges - from setting profitable rates to evaluating project viability. Our toolkit provides the clarity you need to build a sustainable freelance business.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Tools Section -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row justify-content-center mb-5">
+            <div class="col-lg-8 text-center">
+                <h2 class="mb-3">Essential Financial Tools</h2>
+                <p class="text-muted">Everything you need to make informed financial decisions for your freelance business.</p>
+            </div>
+        </div>
+        
+        <div class="row g-4">
+            <div class="col-md-6">
+                <div class="card h-100 shadow-sm tool-card">
+                    <div class="card-body text-center p-4">
+                        <div class="tool-icon mb-3">
+                            <i class="fas fa-clock fa-3x text-primary"></i>
+                        </div>
+                        <h4 class="card-title mb-3">Hourly Rate Calculator</h4>
+                        <p class="card-text text-muted mb-4">Determine a profitable hourly rate based on your desired income, business expenses, and profit margins.</p>
+                        <ul class="list-unstyled text-start mb-4">
+                            <li><i class="fas fa-check text-success me-2"></i>Factor in all business expenses</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Include desired profit margins</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Based on realistic billable hours</li>
+                        </ul>
+                        <a href="{{ url_for('hourly_rate_calculator') }}" class="btn btn-primary btn-lg">Calculate Your Rate</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6">
+                <div class="card h-100 shadow-sm tool-card">
+                    <div class="card-body text-center p-4">
+                        <div class="tool-icon mb-3">
+                            <i class="fas fa-chart-line fa-3x text-success"></i>
+                        </div>
+                        <h4 class="card-title mb-3">Project Profitability Calculator</h4>
+                        <p class="card-text text-muted mb-4">Quickly estimate the profitability of potential projects before you commit your time and resources.</p>
+                        <ul class="list-unstyled text-start mb-4">
+                            <li><i class="fas fa-check text-success me-2"></i>Calculate net profit and margins</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Factor in all project costs</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Make informed project decisions</li>
+                        </ul>
+                        <a href="{{ url_for('project_profit_calculator') }}" class="btn btn-success btn-lg">Estimate Profitability</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Why Us Section -->
+<section class="py-5">
+    <div class="container">
+        <div class="row justify-content-center mb-5">
+            <div class="col-lg-8 text-center">
+                <h2 class="mb-3">Why Choose Our Tools?</h2>
+                <p class="text-muted">Built by freelancers, for freelancers. We understand your challenges.</p>
+            </div>
+        </div>
+        
+        <div class="row g-4">
+            <div class="col-md-4 text-center">
+                <div class="feature-icon mb-3">
+                    <i class="fas fa-bullseye fa-2x text-primary"></i>
+                </div>
+                <h5>Accurate</h5>
+                <p class="text-muted">Precise calculations based on proven financial formulas and real-world freelance scenarios.</p>
+            </div>
+            
+            <div class="col-md-4 text-center">
+                <div class="feature-icon mb-3">
+                    <i class="fas fa-mouse-pointer fa-2x text-primary"></i>
+                </div>
+                <h5>Easy to Use</h5>
+                <p class="text-muted">Intuitive interface with clear instructions and helpful examples for every input field.</p>
+            </div>
+            
+            <div class="col-md-4 text-center">
+                <div class="feature-icon mb-3">
+                    <i class="fas fa-gift fa-2x text-primary"></i>
+                </div>
+                <h5>Free</h5>
+                <p class="text-muted">All essential tools are completely free. No hidden fees, no registration required.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="py-5 bg-primary text-white">
+    <div class="container text-center">
+        <h2 class="mb-3">Ready to Optimize Your Freelance Finances?</h2>
+        <p class="lead mb-4">Start making more informed financial decisions today with our free calculators.</p>
+        <div class="d-flex flex-wrap justify-content-center gap-3">
+            <a href="{{ url_for('hourly_rate_calculator') }}" class="btn btn-light btn-lg">
+                <i class="fas fa-clock me-2"></i>Calculate Hourly Rate
+            </a>
+            <a href="{{ url_for('project_profit_calculator') }}" class="btn btn-outline-light btn-lg">
+                <i class="fas fa-chart-line me-2"></i>Project Profitability
+            </a>
+        </div>
+        
+        <div class="mt-4">
+            <small class="opacity-75">
+                <a href="{{ url_for('premium_features') }}" class="text-warning text-decoration-none">
+                    <i class="fas fa-crown me-1"></i>Unlock Advanced Features & Ad-Free Version with Pro!
+                </a>
+            </small>
+        </div>
+    </div>
+</section>
+{% endblock %}

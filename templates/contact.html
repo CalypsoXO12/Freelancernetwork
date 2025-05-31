@@ -1,0 +1,105 @@
+{% extends "base.html" %}
+
+{% block title %}Contact Us - Freelance Financial Toolkit{% endblock %}
+{% block description %}Get in touch with the Freelance Financial Toolkit team. We'd love to hear from you!{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <h1 class="mb-4">Contact Us</h1>
+            <p class="lead mb-5">We'd love to hear from you! Whether you have questions, feedback, or suggestions for new tools, don't hesitate to reach out.</p>
+            
+            <div class="row g-5">
+                <div class="col-md-6">
+                    <div class="card border-0 bg-light h-100">
+                        <div class="card-body p-4">
+                            <h3 class="h5 mb-3">
+                                <i class="fas fa-envelope text-primary me-2"></i>Send us a Message
+                            </h3>
+                            <form method="POST" action="{{ url_for('contact') }}">
+                                <div class="mb-3">
+                                    <label for="name" class="form-label">Your Name</label>
+                                    <input type="text" class="form-control" id="name" name="name" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">Email Address</label>
+                                    <input type="email" class="form-control" id="email" name="email" required>
+                                </div>
+                                <div class="mb-4">
+                                    <label for="message" class="form-label">Message</label>
+                                    <textarea class="form-control" id="message" name="message" rows="5" required placeholder="Tell us how we can help you..."></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary btn-lg w-100">
+                                    <i class="fas fa-paper-plane me-2"></i>Send Message
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6">
+                    <div class="mb-4">
+                        <h3 class="h5 mb-3">
+                            <i class="fas fa-question-circle text-primary me-2"></i>Common Questions
+                        </h3>
+                        <div class="accordion" id="faqAccordion">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                                        Are your calculators really free?
+                                    </button>
+                                </h2>
+                                <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body">
+                                        Yes! All our essential calculators are completely free to use. No registration required, no hidden fees.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                                        Do you store my calculation data?
+                                    </button>
+                                </h2>
+                                <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body">
+                                        No, all calculations are performed in your browser. We don't store any of your financial data on our servers.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                                        Can I suggest new calculator features?
+                                    </button>
+                                </h2>
+                                <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body">
+                                        Absolutely! We love hearing from our users. Use the contact form to send us your suggestions.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <h3 class="h5 mb-3">
+                            <i class="fas fa-clock text-primary me-2"></i>Response Time
+                        </h3>
+                        <p class="text-muted">We typically respond to messages within 24-48 hours during business days.</p>
+                    </div>
+                    
+                    <div>
+                        <h3 class="h5 mb-3">
+                            <i class="fas fa-envelope text-primary me-2"></i>Direct Email
+                        </h3>
+                        <p class="text-muted">You can also reach us directly at:</p>
+                        <p><strong>support@freelancefinancialtoolkit.com</strong></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,169 @@
+{% extends "base.html" %}
+
+{% block title %}Project Profitability Calculator - Freelance Financial Toolkit{% endblock %}
+{% block description %}Calculate project profitability and profit margins for your freelance projects. Estimate net profit before you commit.{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
+            <div class="text-center mb-5">
+                <h1 class="mb-3">Project Profitability Calculator</h1>
+                <p class="lead text-muted">Quickly estimate the profitability of potential projects before you commit</p>
+            </div>
+            
+            <div class="row g-5">
+                <div class="col-lg-6">
+                    <div class="card shadow-sm">
+                        <div class="card-header bg-primary text-white">
+                            <h3 class="card-title mb-0">
+                                <i class="fas fa-project-diagram me-2"></i>Project Details
+                            </h3>
+                        </div>
+                        <div class="card-body p-4">
+                            <form id="projectProfitForm">
+                                <div class="mb-4">
+                                    <label for="projectRevenue" class="form-label fw-bold">Project Revenue / Quoted Price ($)</label>
+                                    <input type="number" class="form-control form-control-lg" id="projectRevenue" placeholder="2000" min="0" step="100">
+                                    <div class="form-text">The total amount you'll receive for this project</div>
+                                </div>
+                                
+                                <div class="mb-4">
+                                    <label for="projectCosts" class="form-label fw-bold">Total Estimated Project Costs ($)</label>
+                                    <input type="number" class="form-control form-control-lg" id="projectCosts" placeholder="300" min="0" step="50">
+                                    <div class="form-text">Software, materials, subcontractor costs, etc. (excluding your own labor time)</div>
+                                </div>
+                                
+                                <div class="d-grid gap-2">
+                                    <button type="button" class="btn btn-primary btn-lg" onclick="calculateProjectProfit()">
+                                        <i class="fas fa-calculator me-2"></i>Calculate Profitability
+                                    </button>
+                                    <button type="button" class="btn btn-outline-secondary" onclick="resetProjectProfitForm()">
+                                        <i class="fas fa-redo me-2"></i>Reset
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    
+                    <div class="card border-0 bg-light mt-4">
+                        <div class="card-body p-3">
+                            <h6 class="fw-bold mb-2">
+                                <i class="fas fa-lightbulb text-warning me-2"></i>Pro Tip
+                            </h6>
+                            <p class="small mb-0">If you're using an hourly rate (from our Hourly Rate Calculator), your labor time should already be accounted for in the project revenue, not in the costs.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6">
+                    <div class="card shadow-sm h-100">
+                        <div class="card-header bg-success text-white">
+                            <h3 class="card-title mb-0">
+                                <i class="fas fa-chart-bar me-2"></i>Profitability Analysis
+                            </h3>
+                        </div>
+                        <div class="card-body p-4">
+                            <div id="projectProfitResults" class="text-center" style="display: none;">
+                                <div class="row g-4 mb-4">
+                                    <div class="col-12">
+                                        <div class="border rounded p-4">
+                                            <h2 class="display-5 mb-2" id="netProfit">$0.00</h2>
+                                            <p class="lead mb-0">Net Profit</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="border rounded p-4">
+                                            <h2 class="display-5 mb-2" id="profitMarginResult">0.00%</h2>
+                                            <p class="lead mb-0">Profit Margin</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div id="profitabilityIndicator" class="alert">
+                                    <i class="fas fa-chart-line me-2"></i>
+                                    <span id="profitabilityMessage"></span>
+                                </div>
+                                
+                                <div class="row g-3 text-start">
+                                    <div class="col-6">
+                                        <small class="text-muted d-block">Revenue</small>
+                                        <strong id="revenueDisplay">$0.00</strong>
+                                    </div>
+                                    <div class="col-6">
+                                        <small class="text-muted d-block">Costs</small>
+                                        <strong id="costsDisplay">$0.00</strong>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div id="projectProfitInstructions" class="text-center text-muted">
+                                <i class="fas fa-chart-line fa-3x mb-3 opacity-50"></i>
+                                <p>Enter your project details to see profitability analysis.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row mt-5">
+                <div class="col-lg-12">
+                    <div class="card border-0 bg-light">
+                        <div class="card-body p-4">
+                            <h3 class="h4 mb-3">How to Use This Calculator</h3>
+                            
+                            <div class="row g-4">
+                                <div class="col-md-6">
+                                    <h5>
+                                        <i class="fas fa-money-bill-wave text-success me-2"></i>Project Revenue
+                                    </h5>
+                                    <p>Enter the total amount you'll receive for the project. This could be a fixed project fee, or your estimated hourly rate multiplied by expected hours.</p>
+                                </div>
+                                
+                                <div class="col-md-6">
+                                    <h5>
+                                        <i class="fas fa-shopping-cart text-danger me-2"></i>Project Costs
+                                    </h5>
+                                    <p>Include all direct costs for this specific project: software licenses, stock photos, subcontractor fees, materials, but <strong>not</strong> your own time.</p>
+                                </div>
+                            </div>
+                            
+                            <hr>
+                            
+                            <h4 class="h5 mb-3">Interpreting Your Results</h4>
+                            <div class="row g-3">
+                                <div class="col-md-4">
+                                    <div class="text-center p-3 border rounded">
+                                        <div class="h5 text-success mb-2">20%+ Margin</div>
+                                        <small class="text-muted">Excellent profitability</small>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="text-center p-3 border rounded">
+                                        <div class="h5 text-warning mb-2">10-20% Margin</div>
+                                        <small class="text-muted">Good profitability</small>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="text-center p-3 border rounded">
+                                        <div class="h5 text-danger mb-2">Under 10%</div>
+                                        <small class="text-muted">Consider negotiating</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-4">
+                <small class="text-muted">
+                    <a href="{{ url_for('premium_features') }}" class="text-warning text-decoration-none">
+                        <i class="fas fa-crown me-1"></i>Unlock Advanced Features & Ad-Free Version with Pro!
+                    </a>
+                </small>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

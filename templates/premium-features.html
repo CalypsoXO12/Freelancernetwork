@@ -1,0 +1,147 @@
+{% extends "base.html" %}
+
+{% block title %}Premium Features - Freelance Financial Toolkit{% endblock %}
+{% block description %}Unlock advanced features and ad-free experience with Freelance Financial Toolkit Pro.{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-8 text-center">
+            <div class="mb-5">
+                <i class="fas fa-crown fa-3x text-warning mb-3"></i>
+                <h1 class="mb-3">Premium Features Coming Soon!</h1>
+                <p class="lead text-muted">Take your freelance financial planning to the next level with advanced tools and features.</p>
+            </div>
+            
+            <div class="row g-4 mb-5">
+                <div class="col-md-6">
+                    <div class="card h-100 border-warning">
+                        <div class="card-body p-4">
+                            <div class="text-warning mb-3">
+                                <i class="fas fa-save fa-2x"></i>
+                            </div>
+                            <h5 class="card-title">Save Your Calculations</h5>
+                            <p class="card-text">Store and organize all your rate calculations and project analyses. Never lose track of your financial planning.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6">
+                    <div class="card h-100 border-warning">
+                        <div class="card-body p-4">
+                            <div class="text-warning mb-3">
+                                <i class="fas fa-file-pdf fa-2x"></i>
+                            </div>
+                            <h5 class="card-title">Export to PDF</h5>
+                            <p class="card-text">Generate professional PDF reports of your calculations to share with clients or keep for your records.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6">
+                    <div class="card h-100 border-warning">
+                        <div class="card-body p-4">
+                            <div class="text-warning mb-3">
+                                <i class="fas fa-calculator fa-2x"></i>
+                            </div>
+                            <h5 class="card-title">Advanced Calculators</h5>
+                            <p class="card-text">Access specialized tools including tax calculators, retirement planning, expense tracking, and client payment analysis.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6">
+                    <div class="card h-100 border-warning">
+                        <div class="card-body p-4">
+                            <div class="text-warning mb-3">
+                                <i class="fas fa-ad fa-2x"></i>
+                            </div>
+                            <h5 class="card-title">Ad-Free Experience</h5>
+                            <p class="card-text">Enjoy a clean, distraction-free interface without any advertisements. Focus on what matters most.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6">
+                    <div class="card h-100 border-warning">
+                        <div class="card-body p-4">
+                            <div class="text-warning mb-3">
+                                <i class="fas fa-chart-line fa-2x"></i>
+                            </div>
+                            <h5 class="card-title">Financial Dashboard</h5>
+                            <p class="card-text">Track your freelance business performance with comprehensive analytics and insights over time.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6">
+                    <div class="card h-100 border-warning">
+                        <div class="card-body p-4">
+                            <div class="text-warning mb-3">
+                                <i class="fas fa-headset fa-2x"></i>
+                            </div>
+                            <h5 class="card-title">Priority Support</h5>
+                            <p class="card-text">Get direct access to our support team with priority response times and personalized assistance.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card bg-primary text-white mb-5">
+                <div class="card-body p-5">
+                    <h3 class="mb-3">Be the First to Know</h3>
+                    <p class="mb-4">Join our early access list to be notified when premium features launch and receive exclusive early-bird pricing.</p>
+                    
+                    <form class="row g-3 justify-content-center">
+                        <div class="col-md-6">
+                            <input type="email" class="form-control form-control-lg" placeholder="Enter your email address">
+                        </div>
+                        <div class="col-auto">
+                            <button type="submit" class="btn btn-warning btn-lg">
+                                <i class="fas fa-bell me-2"></i>Notify Me
+                            </button>
+                        </div>
+                    </form>
+                    
+                    <small class="opacity-75 mt-3 d-block">We'll never spam you. Unsubscribe at any time.</small>
+                </div>
+            </div>
+            
+            <div class="row g-4 text-start">
+                <div class="col-md-4">
+                    <div class="d-flex align-items-center mb-2">
+                        <i class="fas fa-check-circle text-success me-2"></i>
+                        <strong>Free Forever</strong>
+                    </div>
+                    <p class="text-muted small">Our essential calculators will always remain free for the freelance community.</p>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="d-flex align-items-center mb-2">
+                        <i class="fas fa-lock text-success me-2"></i>
+                        <strong>Secure & Private</strong>
+                    </div>
+                    <p class="text-muted small">Your financial data is encrypted and never shared with third parties.</p>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="d-flex align-items-center mb-2">
+                        <i class="fas fa-users text-success me-2"></i>
+                        <strong>Made by Freelancers</strong>
+                    </div>
+                    <p class="text-muted small">Built by people who understand the unique challenges of freelance work.</p>
+                </div>
+            </div>
+            
+            <div class="mt-5">
+                <a href="{{ url_for('index') }}" class="btn btn-outline-primary btn-lg me-3">
+                    <i class="fas fa-arrow-left me-2"></i>Back to Tools
+                </a>
+                <a href="{{ url_for('contact') }}" class="btn btn-primary btn-lg">
+                    <i class="fas fa-envelope me-2"></i>Contact Us
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+
+{% block title %}About Us - Freelance Financial Toolkit{% endblock %}
+{% block description %}Learn about our mission to empower freelancers with accessible financial tools and resources.{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <h1 class="mb-4">About Freelance Financial Toolkit</h1>
+            
+            <div class="mb-5">
+                <h2 class="h4 mb-3">Our Mission</h2>
+                <p class="lead">Our mission is to empower freelancers with accessible financial tools that simplify complex calculations and enable informed business decisions.</p>
+                <p>We believe that every independent professional deserves access to the same quality financial planning tools that large businesses use. By providing free, easy-to-use calculators, we're helping freelancers build more sustainable and profitable businesses.</p>
+            </div>
+            
+            <div class="mb-5">
+                <h2 class="h4 mb-3">Why We Created This Toolkit</h2>
+                <p>As freelancers ourselves, we understand the unique financial challenges that independent professionals face:</p>
+                <ul>
+                    <li>Setting profitable rates that reflect true business costs</li>
+                    <li>Evaluating project opportunities quickly and accurately</li>
+                    <li>Planning for irregular income and business expenses</li>
+                    <li>Making financial decisions without traditional business support</li>
+                </ul>
+                <p>We created this toolkit to address these challenges with simple, practical tools that any freelancer can use to improve their financial decision-making.</p>
+            </div>
+            
+            <div class="mb-5">
+                <h2 class="h4 mb-3">Our Approach</h2>
+                <div class="row g-4">
+                    <div class="col-md-6">
+                        <div class="card h-100 border-0 bg-light">
+                            <div class="card-body">
+                                <h5 class="card-title">Simplicity First</h5>
+                                <p class="card-text">We focus on creating tools that are easy to understand and use, without sacrificing accuracy or functionality.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card h-100 border-0 bg-light">
+                            <div class="card-body">
+                                <h5 class="card-title">Real-World Focused</h5>
+                                <p class="card-text">Our calculators are based on real freelance scenarios and include practical considerations often overlooked by generic tools.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card h-100 border-0 bg-light">
+                            <div class="card-body">
+                                <h5 class="card-title">Accessible to All</h5>
+                                <p class="card-text">We keep our essential tools free and available to everyone, regardless of their business size or experience level.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card h-100 border-0 bg-light">
+                            <div class="card-body">
+                                <h5 class="card-title">Continuously Improving</h5>
+                                <p class="card-text">We regularly update our tools based on user feedback and evolving freelance business needs.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mb-5">
+                <h2 class="h4 mb-3">Looking Forward</h2>
+                <p>We're committed to expanding our toolkit with additional calculators and features that address the evolving needs of the freelance community. Our goal is to become the go-to resource for freelance financial planning and decision-making.</p>
+                <p>Whether you're just starting your freelance journey or you're a seasoned professional, we're here to help you build a more profitable and sustainable business.</p>
+            </div>
+            
+            <div class="text-center">
+                <a href="{{ url_for('contact') }}" class="btn btn-primary btn-lg">Get in Touch</a>
+                <a href="{{ url_for('index') }}" class="btn btn-outline-primary btn-lg ms-3">Explore Our Tools</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,158 @@
+{% extends "base.html" %}
+
+{% block title %}Freelancer Hourly Rate Calculator - Freelance Financial Toolkit{% endblock %}
+{% block description %}Calculate your ideal freelance hourly rate based on desired income, business expenses, and profit margins. Free and easy to use.{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
+            <div class="text-center mb-5">
+                <h1 class="mb-3">Freelancer Hourly Rate Calculator</h1>
+                <p class="lead text-muted">Determine a profitable hourly rate that covers your expenses and desired income</p>
+            </div>
+            
+            <div class="row g-5">
+                <div class="col-lg-6">
+                    <div class="card shadow-sm">
+                        <div class="card-header bg-primary text-white">
+                            <h3 class="card-title mb-0">
+                                <i class="fas fa-calculator me-2"></i>Rate Calculator
+                            </h3>
+                        </div>
+                        <div class="card-body p-4">
+                            <form id="hourlyRateForm">
+                                <div class="mb-4">
+                                    <label for="desiredIncome" class="form-label fw-bold">Desired Annual Income ($)</label>
+                                    <input type="number" class="form-control form-control-lg" id="desiredIncome" placeholder="60000" min="0" step="1000">
+                                    <div class="form-text">Your target personal income for the year</div>
+                                </div>
+                                
+                                <div class="mb-4">
+                                    <label for="billableHours" class="form-label fw-bold">Annual Billable Hours</label>
+                                    <input type="number" class="form-control form-control-lg" id="billableHours" placeholder="1500" min="1" step="50">
+                                    <div class="form-text">Typically 25-30 hours/week × 50 weeks (accounting for vacation, sick days, and non-billable time)</div>
+                                </div>
+                                
+                                <div class="mb-4">
+                                    <label for="businessExpenses" class="form-label fw-bold">Annual Business Expenses ($)</label>
+                                    <input type="number" class="form-control form-control-lg" id="businessExpenses" placeholder="5000" min="0" step="500">
+                                    <div class="form-text">Software, utilities, equipment, insurance, marketing, etc.</div>
+                                </div>
+                                
+                                <div class="mb-4">
+                                    <label for="profitMargin" class="form-label fw-bold">Desired Profit Margin (%)</label>
+                                    <input type="number" class="form-control form-control-lg" id="profitMargin" placeholder="20" min="0" max="100" step="5">
+                                    <div class="form-text">For reinvestment, savings, and business growth</div>
+                                </div>
+                                
+                                <div class="d-grid gap-2">
+                                    <button type="button" class="btn btn-primary btn-lg" onclick="calculateHourlyRate()">
+                                        <i class="fas fa-calculator me-2"></i>Calculate Rate
+                                    </button>
+                                    <button type="button" class="btn btn-outline-secondary" onclick="resetHourlyRateForm()">
+                                        <i class="fas fa-redo me-2"></i>Reset
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6">
+                    <div class="card shadow-sm h-100">
+                        <div class="card-header bg-success text-white">
+                            <h3 class="card-title mb-0">
+                                <i class="fas fa-chart-line me-2"></i>Your Results
+                            </h3>
+                        </div>
+                        <div class="card-body p-4">
+                            <div id="hourlyRateResults" class="text-center" style="display: none;">
+                                <div class="mb-4">
+                                    <h2 class="display-4 text-success mb-2" id="suggestedRate">$0.00</h2>
+                                    <p class="lead">Suggested Hourly Rate</p>
+                                </div>
+                                
+                                <div class="row g-3 mb-4">
+                                    <div class="col-6">
+                                        <div class="border rounded p-3">
+                                            <h6 class="text-muted mb-1">Rate Before Profit</h6>
+                                            <h5 id="rateBeforeProfit">$0.00</h5>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="border rounded p-3">
+                                            <h6 class="text-muted mb-1">Profit Amount</h6>
+                                            <h5 id="profitAmount">$0.00</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="alert alert-info">
+                                    <small>
+                                        <i class="fas fa-info-circle me-1"></i>
+                                        This rate ensures you meet your income goals while covering all business expenses and desired profit margin.
+                                    </small>
+                                </div>
+                            </div>
+                            
+                            <div id="hourlyRateInstructions" class="text-center text-muted">
+                                <i class="fas fa-calculator fa-3x mb-3 opacity-50"></i>
+                                <p>Fill in the form on the left to calculate your ideal hourly rate.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row mt-5">
+                <div class="col-lg-12">
+                    <div class="card border-0 bg-light">
+                        <div class="card-body p-4">
+                            <h3 class="h4 mb-3">Understanding Each Input</h3>
+                            
+                            <div class="row g-4">
+                                <div class="col-md-6">
+                                    <h5>
+                                        <i class="fas fa-dollar-sign text-primary me-2"></i>Desired Annual Income
+                                    </h5>
+                                    <p>This is your target personal income - the amount you want to take home for living expenses, personal savings, and lifestyle. Don't include business expenses here.</p>
+                                </div>
+                                
+                                <div class="col-md-6">
+                                    <h5>
+                                        <i class="fas fa-clock text-primary me-2"></i>Annual Billable Hours
+                                    </h5>
+                                    <p>Realistic hours you can bill clients per year. Remember to account for vacation, sick days, marketing, administration, and time between projects.</p>
+                                </div>
+                                
+                                <div class="col-md-6">
+                                    <h5>
+                                        <i class="fas fa-receipt text-primary me-2"></i>Business Expenses
+                                    </h5>
+                                    <p>All costs of running your business: software subscriptions, equipment, insurance, office space, professional development, marketing, and taxes.</p>
+                                </div>
+                                
+                                <div class="col-md-6">
+                                    <h5>
+                                        <i class="fas fa-chart-pie text-primary me-2"></i>Profit Margin
+                                    </h5>
+                                    <p>Additional percentage for business growth, emergency fund, equipment upgrades, and reinvestment. Typically 10-30% for sustainable growth.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-4">
+                <small class="text-muted">
+                    <a href="{{ url_for('premium_features') }}" class="text-warning text-decoration-none">
+                        <i class="fas fa-crown me-1"></i>Unlock Advanced Features & Ad-Free Version with Pro!
+                    </a>
+                </small>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

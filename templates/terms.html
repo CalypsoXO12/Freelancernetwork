@@ -1,0 +1,104 @@
+{% extends "base.html" %}
+
+{% block title %}Terms of Service - Freelance Financial Toolkit{% endblock %}
+{% block description %}Terms and conditions for using Freelance Financial Toolkit and our financial calculators.{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <h1 class="mb-4">Terms of Service</h1>
+            <p class="text-muted mb-5">Last updated: January 2024</p>
+            
+            <div class="alert alert-warning" role="alert">
+                <h4 class="alert-heading">
+                    <i class="fas fa-exclamation-triangle me-2"></i>Important Disclaimer
+                </h4>
+                <p class="mb-0">The financial tools and calculators provided on this website are for informational purposes only and do not constitute financial advice. Users should consult with a qualified financial professional for personalized advice regarding their specific financial situation.</p>
+            </div>
+            
+            <div class="mb-5">
+                <h2 class="h4 mb-3">Acceptance of Terms</h2>
+                <p>By accessing and using the Freelance Financial Toolkit website and its services, you accept and agree to be bound by the terms and provision of this agreement.</p>
+            </div>
+            
+            <div class="mb-5">
+                <h2 class="h4 mb-3">Description of Service</h2>
+                <p>Freelance Financial Toolkit provides free online financial calculators and tools designed to help freelancers and independent professionals make informed business decisions. Our services include but are not limited to:</p>
+                <ul>
+                    <li>Hourly rate calculators</li>
+                    <li>Project profitability calculators</li>
+                    <li>Educational content related to freelance finances</li>
+                    <li>Additional tools and resources as they become available</li>
+                </ul>
+            </div>
+            
+            <div class="mb-5">
+                <h2 class="h4 mb-3">Use License</h2>
+                <p>Permission is granted to temporarily use our website for personal, non-commercial transitory viewing only. This is the grant of a license, not a transfer of title, and under this license you may not:</p>
+                <ul>
+                    <li>Modify or copy the materials</li>
+                    <li>Use the materials for any commercial purpose or for any public display</li>
+                    <li>Attempt to reverse engineer any software contained on our website</li>
+                    <li>Remove any copyright or other proprietary notations from the materials</li>
+                </ul>
+            </div>
+            
+            <div class="mb-5">
+                <h2 class="h4 mb-3">Financial Advice Disclaimer</h2>
+                <div class="alert alert-info">
+                    <p><strong>No Financial Advice:</strong> The information provided by our calculators and tools is for educational and informational purposes only. It should not be considered as financial, investment, tax, or legal advice.</p>
+                    <p><strong>Accuracy Not Guaranteed:</strong> While we strive to provide accurate calculations, we make no warranties about the completeness, reliability, or accuracy of this information.</p>
+                    <p class="mb-0"><strong>Professional Consultation:</strong> Any financial decisions should be made only after consulting with a qualified financial advisor, accountant, or other professional who can take into account your individual circumstances.</p>
+                </div>
+            </div>
+            
+            <div class="mb-5">
+                <h2 class="h4 mb-3">User Responsibilities</h2>
+                <p>As a user of our services, you agree to:</p>
+                <ul>
+                    <li>Use the website and tools for lawful purposes only</li>
+                    <li>Not attempt to gain unauthorized access to our systems</li>
+                    <li>Not use our services to transmit harmful or malicious content</li>
+                    <li>Respect the intellectual property rights of our content</li>
+                    <li>Verify all calculations and seek professional advice when needed</li>
+                </ul>
+            </div>
+            
+            <div class="mb-5">
+                <h2 class="h4 mb-3">Limitation of Liability</h2>
+                <p>In no event shall Freelance Financial Toolkit or its suppliers be liable for any damages (including, without limitation, damages for loss of data or profit, or due to business interruption) arising out of the use or inability to use the materials on our website, even if we or our authorized representative has been notified orally or in writing of the possibility of such damage.</p>
+            </div>
+            
+            <div class="mb-5">
+                <h2 class="h4 mb-3">Accuracy of Materials</h2>
+                <p>The materials appearing on our website may include technical, typographical, or photographic errors. We do not warrant that any of the materials on its website are accurate, complete, or current. We may make changes to the materials contained on its website at any time without notice.</p>
+            </div>
+            
+            <div class="mb-5">
+                <h2 class="h4 mb-3">Privacy Policy</h2>
+                <p>Your privacy is important to us. Please review our Privacy Policy, which also governs your use of our website, to understand our practices.</p>
+            </div>
+            
+            <div class="mb-5">
+                <h2 class="h4 mb-3">Modifications</h2>
+                <p>We may revise these terms of service for its website at any time without notice. By using this website, you are agreeing to be bound by the then current version of these terms of service.</p>
+            </div>
+            
+            <div class="mb-5">
+                <h2 class="h4 mb-3">Governing Law</h2>
+                <p>These terms and conditions are governed by and construed in accordance with the laws of the jurisdiction in which our company is established, and you irrevocably submit to the exclusive jurisdiction of the courts in that location.</p>
+            </div>
+            
+            <div class="mb-5">
+                <h2 class="h4 mb-3">Contact Information</h2>
+                <p>If you have any questions about these Terms of Service, please contact us:</p>
+                <ul class="list-unstyled">
+                    <li>Email: support@freelancefinancialtoolkit.com</li>
+                    <li>Through our <a href="{{ url_for('contact') }}" class="text-decoration-none">Contact Form</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
