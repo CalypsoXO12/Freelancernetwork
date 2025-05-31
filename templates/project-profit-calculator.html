@@ -87,6 +87,15 @@
                                             <span id="profitabilityMessage"></span>
                                         </div>
                                         
+                                        <div class="d-grid gap-2 mt-3">
+                                            <button class="btn btn-outline-success" onclick="exportToPDF('project-profit')">
+                                                <i class="fas fa-file-pdf me-2"></i>Export to PDF
+                                            </button>
+                                            <button class="btn btn-outline-primary" onclick="exportToSpreadsheet('project-profit')">
+                                                <i class="fas fa-file-excel me-2"></i>Export to Spreadsheet
+                                            </button>
+                                        </div>
+                                        
                                         <div class="row g-3 text-start">
                                             <div class="col-6">
                                                 <small class="text-muted d-block">Revenue</small>
