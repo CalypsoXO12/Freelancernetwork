@@ -9,14 +9,29 @@
     --dark: 210 11% 15%; /* #2C3E50 */
     --muted: 210 8% 50%; /* #6C757D */
     --background: 210 11% 98%; /* #F5F7FA */
+    --text-color: 210 11% 15%; /* #2C3E50 */
+    --card-background: 0 0% 100%; /* #FFFFFF */
+    --border-color: 210 14% 89%; /* #E9ECEF */
+    --navbar-background: 0 0% 100%; /* #FFFFFF */
+}
+
+[data-theme="dark"] {
+    --background: 210 11% 8%; /* #131821 */
+    --text-color: 210 11% 85%; /* #D1D5DB */
+    --card-background: 210 11% 12%; /* #1F2937 */
+    --border-color: 210 11% 20%; /* #374151 */
+    --navbar-background: 210 11% 10%; /* #111827 */
+    --light: 210 11% 20%; /* #374151 */
+    --dark: 210 11% 85%; /* #D1D5DB */
 }
 
 /* Base Styles */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
-    color: hsl(var(--dark));
+    color: hsl(var(--text-color));
     background-color: hsl(var(--background));
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Custom Primary Colors */
@@ -97,26 +112,38 @@ body {
 }
 
 /* Navigation */
+.navbar {
+    background-color: hsl(var(--navbar-background)) !important;
+    transition: background-color 0.3s ease;
+}
+
 .navbar-brand {
     font-size: 1.5rem;
     font-weight: 700;
+    color: hsl(var(--text-color)) !important;
 }
 
 .navbar-nav .nav-link {
     font-weight: 500;
     padding: 0.5rem 1rem;
     transition: color 0.3s ease;
+    color: hsl(var(--text-color)) !important;
 }
 
 .navbar-nav .nav-link:hover {
     color: hsl(var(--primary)) !important;
 }
 
+.navbar-toggler {
+    border-color: hsl(var(--border-color));
+}
+
 /* Cards */
 .card {
     border: none;
     border-radius: 12px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: hsl(var(--card-background));
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
 }
 
 .card:hover {
@@ -136,9 +163,11 @@ body {
 /* Form Styles */
 .form-control {
     border-radius: 8px;
-    border: 2px solid hsl(210 14% 89%);
+    border: 2px solid hsl(var(--border-color));
     padding: 0.75rem 1rem;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    background-color: hsl(var(--card-background));
+    color: hsl(var(--text-color));
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
 }
 
 .form-control:focus {
@@ -322,6 +351,67 @@ footer a:hover {
     background-color: hsl(210 14% 95%);
     border: 1px dashed hsl(210 14% 80%);
     margin: 1rem 0;
+}
+
+/* Theme Toggle Button */
+#themeToggle {
+    transition: all 0.3s ease;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#themeToggle:hover {
+    transform: scale(1.1);
+}
+
+[data-theme="dark"] #themeToggle {
+    border-color: hsl(var(--text-color));
+    color: hsl(var(--text-color));
+}
+
+/* Dark theme specific adjustments */
+[data-theme="dark"] .btn-outline-secondary {
+    border-color: hsl(var(--border-color));
+    color: hsl(var(--text-color));
+}
+
+[data-theme="dark"] .btn-outline-secondary:hover {
+    background-color: hsl(var(--border-color));
+    border-color: hsl(var(--border-color));
+    color: hsl(var(--text-color));
+}
+
+[data-theme="dark"] .table {
+    color: hsl(var(--text-color));
+}
+
+[data-theme="dark"] .table-striped > tbody > tr:nth-of-type(odd) > td {
+    background-color: hsl(var(--border-color) / 0.3);
+}
+
+[data-theme="dark"] .alert {
+    background-color: hsl(var(--card-background));
+    border-color: hsl(var(--border-color));
+    color: hsl(var(--text-color));
+}
+
+[data-theme="dark"] .form-label {
+    color: hsl(var(--text-color));
+}
+
+[data-theme="dark"] .text-muted {
+    color: hsl(var(--muted)) !important;
+}
+
+[data-theme="dark"] .ad-space-header,
+[data-theme="dark"] .ad-space-sidebar,
+[data-theme="dark"] .ad-space-footer {
+    background-color: hsl(var(--border-color));
+    border-color: hsl(var(--text-color) / 0.3);
 }
 
 /* Print Styles */
