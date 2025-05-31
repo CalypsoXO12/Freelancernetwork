@@ -89,7 +89,9 @@ def create_checkout_session():
         return "Payment processing unavailable", 400
     
     try:
-        domain = request.host
+        # Use the correct domain for Render
+        domain = 'freelancernetwork.onrender.com'
+        
         checkout_session = stripe.checkout.Session.create(
             line_items=[{
                 'price_data': {
@@ -104,7 +106,7 @@ def create_checkout_session():
             success_url=f'https://{domain}/premium-success',
             cancel_url=f'https://{domain}/premium-features',
         )
-        return redirect(checkout_session.url, code=303)
+        return redirect(checkout_session.url or '/premium-features?error=true', code=303)
     except Exception as e:
         return f"Payment error: {str(e)}", 400
 
