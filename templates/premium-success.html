@@ -1,0 +1,114 @@
+{% extends "base.html" %}
+
+{% block title %}Premium Subscription Successful - Freelance Financial Toolkit{% endblock %}
+{% block description %}Your premium subscription is now active. Access advanced features and ad-free experience.{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-8 text-center">
+            <div class="mb-5">
+                <div class="text-success mb-4">
+                    <i class="fas fa-check-circle fa-4x"></i>
+                </div>
+                <h1 class="mb-3">Welcome to Premium!</h1>
+                <p class="lead text-muted">Your subscription is now active and you have access to all premium features.</p>
+            </div>
+            
+            <div class="row g-4 mb-5">
+                <div class="col-md-6">
+                    <div class="card h-100 border-success">
+                        <div class="card-body p-4 text-center">
+                            <div class="text-success mb-3">
+                                <i class="fas fa-save fa-2x"></i>
+                            </div>
+                            <h5 class="card-title">Save Calculations</h5>
+                            <p class="card-text">Store and organize all your financial calculations for future reference.</p>
+                            <span class="badge bg-success">Now Available</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6">
+                    <div class="card h-100 border-success">
+                        <div class="card-body p-4 text-center">
+                            <div class="text-success mb-3">
+                                <i class="fas fa-file-pdf fa-2x"></i>
+                            </div>
+                            <h5 class="card-title">PDF Export</h5>
+                            <p class="card-text">Generate professional PDF reports of your calculations.</p>
+                            <span class="badge bg-success">Now Available</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6">
+                    <div class="card h-100 border-success">
+                        <div class="card-body p-4 text-center">
+                            <div class="text-success mb-3">
+                                <i class="fas fa-ad fa-2x"></i>
+                            </div>
+                            <h5 class="card-title">Ad-Free Experience</h5>
+                            <p class="card-text">Enjoy a clean, distraction-free interface without advertisements.</p>
+                            <span class="badge bg-success">Active Now</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6">
+                    <div class="card h-100 border-success">
+                        <div class="card-body p-4 text-center">
+                            <div class="text-success mb-3">
+                                <i class="fas fa-headset fa-2x"></i>
+                            </div>
+                            <h5 class="card-title">Priority Support</h5>
+                            <p class="card-text">Get direct access to our support team with faster response times.</p>
+                            <span class="badge bg-success">Active Now</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card bg-light mb-5">
+                <div class="card-body p-4">
+                    <h3 class="h5 mb-3">What's Next?</h3>
+                    <div class="row g-3 text-start">
+                        <div class="col-md-4">
+                            <div class="d-flex align-items-center mb-2">
+                                <i class="fas fa-calculator text-primary me-2"></i>
+                                <strong>Start Using Tools</strong>
+                            </div>
+                            <p class="text-muted small">Head to our calculators and start saving your calculations.</p>
+                        </div>
+                        
+                        <div class="col-md-4">
+                            <div class="d-flex align-items-center mb-2">
+                                <i class="fas fa-envelope text-primary me-2"></i>
+                                <strong>Check Your Email</strong>
+                            </div>
+                            <p class="text-muted small">We've sent you a confirmation email with your subscription details.</p>
+                        </div>
+                        
+                        <div class="col-md-4">
+                            <div class="d-flex align-items-center mb-2">
+                                <i class="fas fa-question-circle text-primary me-2"></i>
+                                <strong>Need Help?</strong>
+                            </div>
+                            <p class="text-muted small">Contact our priority support team anytime at toolkitfreelance@gmail.com</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="d-flex flex-wrap justify-content-center gap-3">
+                <a href="{{ url_for('hourly_rate_calculator') }}" class="btn btn-primary btn-lg">
+                    <i class="fas fa-clock me-2"></i>Start Calculating
+                </a>
+                <a href="{{ url_for('contact') }}" class="btn btn-outline-primary btn-lg">
+                    <i class="fas fa-envelope me-2"></i>Contact Support
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

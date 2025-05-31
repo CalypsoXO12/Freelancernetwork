@@ -1,3 +1,9 @@
+import os
+import stripe
+from flask import render_template, request, flash, redirect, url_for, session, jsonify
+from app import app, db
+from models import User, SavedCalculation, NewsletterSubscriber
+
 # Configure Stripe
 if os.environ.get('STRIPE_SECRET_KEY'):
     stripe.api_key = os.environ.get('STRIPE_SECRET_KEY')

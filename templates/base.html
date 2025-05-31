@@ -52,6 +52,13 @@
         </div>
     </nav>
 
+    <!-- Header Ad Space -->
+    <div class="container">
+        <div class="ad-space-header d-flex align-items-center justify-content-center text-muted">
+            <small>Advertisement Space - 728x90 Leaderboard</small>
+        </div>
+    </div>
+
     <!-- Flash Messages -->
     {% with messages = get_flashed_messages(with_categories=true) %}
         {% if messages %}
@@ -70,6 +77,13 @@
     <main>
         {% block content %}{% endblock %}
     </main>
+
+    <!-- Footer Ad Space -->
+    <div class="container">
+        <div class="ad-space-footer d-flex align-items-center justify-content-center text-muted">
+            <small>Advertisement Space - 728x90 Leaderboard</small>
+        </div>
+    </div>
 
     <!-- Footer -->
     <footer class="bg-dark text-light py-5 mt-5">

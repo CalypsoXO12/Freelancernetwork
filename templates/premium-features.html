@@ -89,12 +89,23 @@
             
             <div class="card bg-primary text-white mb-5">
                 <div class="card-body p-5">
-                    <h3 class="mb-3">Be the First to Know</h3>
-                    <p class="mb-4">Join our early access list to be notified when premium features launch and receive exclusive early-bird pricing.</p>
+                    <h3 class="mb-3">Subscribe Now - $9.97/month</h3>
+                    <p class="mb-4">Get instant access to all premium features with a 7-day free trial. Cancel anytime.</p>
                     
-                    <form class="row g-3 justify-content-center">
+                    <form action="{{ url_for('create_checkout_session') }}" method="POST" class="mb-4">
+                        <button type="submit" class="btn btn-warning btn-lg btn-block">
+                            <i class="fas fa-crown me-2"></i>Start Free Trial
+                        </button>
+                    </form>
+                    
+                    <hr class="my-4">
+                    
+                    <h4 class="mb-3">Get Notified of Updates</h4>
+                    <p class="mb-4">Stay informed about new features and improvements.</p>
+                    
+                    <form action="{{ url_for('subscribe_newsletter') }}" method="POST" class="row g-3 justify-content-center">
                         <div class="col-md-6">
-                            <input type="email" class="form-control form-control-lg" placeholder="Enter your email address">
+                            <input type="email" name="email" class="form-control form-control-lg" placeholder="Enter your email address" required>
                         </div>
                         <div class="col-auto">
                             <button type="submit" class="btn btn-warning btn-lg">
