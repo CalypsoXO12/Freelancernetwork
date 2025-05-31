@@ -3,7 +3,7 @@ name = "freelance-financial-toolkit"
 version = "0.1.0"
 description = "Essential financial tools for independent professionals"
 authors = ["Freelance Financial Toolkit <toolkitfreelance@gmail.com>"]
-readme = "README.md"
+packages = []
 
 [tool.poetry.dependencies]
 python = "^3.11"
