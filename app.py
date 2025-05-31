@@ -22,16 +22,16 @@ if database_url:
         "pool_recycle": 300,
         "pool_pre_ping": True,
     }
-    # initialize the app with the extension
-    db.init_app(app)
+else:
+    # Fallback for local development
+    app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///app.db"
 
-    with app.app_context():
-        # Make sure to import the models here or their tables won't be created
-        import models  # noqa: F401
-        db.create_all()
+app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
-# Import routes
-from routes import *
+# initialize the app with the extension
+db.init_app(app)
 
-if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000, debug=True)
+# Create tables
+with app.app_context():
+    import models  # noqa: F401
+    db.create_all()

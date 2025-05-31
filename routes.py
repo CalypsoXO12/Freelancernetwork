@@ -58,7 +58,9 @@ def subscribe_newsletter():
             # Check if already subscribed
             existing = NewsletterSubscriber.query.filter_by(email=email).first()
             if not existing:
-                subscriber = NewsletterSubscriber(email=email, source='premium_signup')
+                subscriber = NewsletterSubscriber()
+                subscriber.email = email
+                subscriber.source = 'premium_signup'
                 db.session.add(subscriber)
                 db.session.commit()
             
@@ -73,8 +75,8 @@ def subscribe_newsletter():
 @app.route('/create-checkout-session', methods=['POST'])
 def create_checkout_session():
     try:
-        # Get domain for redirect URLs
-        domain = os.environ.get('REPLIT_DEV_DOMAIN') if os.environ.get('REPLIT_DEPLOYMENT') != '' else os.environ.get('REPLIT_DOMAINS', 'localhost:5000').split(',')[0]
+        # Get domain for redirect URLs - Render compatible
+        domain = request.host
         
         checkout_session = stripe.checkout.Session.create(
             line_items=[
@@ -94,14 +96,14 @@ def create_checkout_session():
                 },
             ],
             mode='subscription',
-            success_url='https://' + domain + '/premium-success?session_id={CHECKOUT_SESSION_ID}',
-            cancel_url='https://' + domain + '/premium-features?canceled=true',
+            success_url=f'https://{domain}/premium-success?session_id={{CHECKOUT_SESSION_ID}}',
+            cancel_url=f'https://{domain}/premium-features?canceled=true',
             automatic_tax={'enabled': True},
         )
     except Exception as e:
         return str(e)
     
-    return redirect(checkout_session.url, code=303)
+    return redirect(checkout_session.url or '/premium-features?error=true', code=303)
 
 @app.route('/premium-success')
 def premium_success():
